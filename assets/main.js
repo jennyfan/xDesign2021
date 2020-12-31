@@ -1,30 +1,61 @@
 /*** Modal pop-up ***/
 
-var body = document.getElementById("body");
+const body = document.getElementById("body");
 
-// get the modal
-var modal = document.getElementById("modal__panel1");
+// get array  of all panels on page, make it clickable
+const panels = document.getElementsByClassName("box");
+Array.from(panels).forEach(function(panel) {
+    panel.addEventListener('click', openModal, false);
+});
 
-// Get the button that opens the modal
-var btn = document.getElementById("btn__panel1");
+// Open panel by clicking on div
+function openModal(e) {
+    // get closest panel's ID (hacky fix for all clickable elements within box)
+    var panel = e.target.closest('div.box').id;
+    // console.log("opening " + panel);
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // get active modal
+    var modal = document.getElementById("modal__" + panel);
 
-// Open panel
-btn.onclick = function() {
-    modal.style.display = "block";
-    modal.classList.remove('animate__zoomOut');
-    modal.classList.add('animate__zoomIn');
-    body.style.overflow = "hidden";
+    // first remove old classes + add new ones
+    async function toggleAnimations() {
+        modal.classList.remove('animate__slideOutDown');
+        modal.classList.add('animate__zoomIn');
+    }
+
+    // then show it + hide body scrollbars
+    toggleAnimations().then(() => {
+        modal.style.display = "block";
+        body.style.overflow = "hidden";
+    });
 }
 
-// Closing with X
-span.onclick = function() {
-    // modal.classList.remove('animate__zoomIn');
-    // modal.classList.add('animate__zoomOut');
-    modal.style.display = "none";
-    body.style.overflow = "auto";
+// get array of all close buttons
+const closeBtns = document.getElementsByClassName("close");
+Array.from(closeBtns).forEach(function(btn) {
+    btn.addEventListener('click', closeModal, false);
+});
+
+// close modals with "x" span
+function closeModal(e) {
+    var panel = e.target.parentNode.id;
+    // console.log("closing" + panel);
+
+    var modal = document.getElementById(panel);
+
+    // first remove old classes + add new ones
+    async function toggleAnimations() {
+        modal.classList.remove('animate__zoomIn');
+        modal.classList.add('animate__slideOutDown');
+    }
+
+    // then hide it + show body scrollbars
+    toggleAnimations().then(() => {
+        modal.style.display = "none";
+        body.style.overflow = "auto";
+    });
+    
+
 }
 
 
