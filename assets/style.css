@@ -38,7 +38,7 @@
   --font-serif: 'Playfair Display', 'Georgia', serif;
   --font-size-sm: clamp(0.75rem, 0.5625rem + 0.8333vw, 1rem);
   --line-height-sm: 1.5em;
-  --font-size-md: clamp(0.875rem, 0.5938rem + 1.2500vw, 1.25rem);
+  --font-size-md: clamp(0.875rem, 0.5938rem + 1vw, 1.2rem);
   --line-height-md: clamp(1.25rem, 0.6875rem + 2.5000vw, 2rem);
   --font-size-lg: clamp(2rem, 1.6429rem + 0.7143vw, 2.5rem);
   --line-height-lg: 1em;
@@ -175,6 +175,7 @@ section, header {
   grid-template-columns: 5.2fr 7.8fr 14.3fr 14.3fr 16.67fr 14.3fr 14.3fr 7.8fr 5.2fr;
   grid-template-rows: 1fr 1.3fr 1.1fr 1.9fr 1.7fr 1.5fr 1.5fr;
   gap: 0;
+  flex-shrink: 1;
   place-items: center;
   place-content: stretch;
 }
@@ -183,6 +184,10 @@ section, header {
   background-image: url('../img/mesh.svg');
   background-size: cover;
   background-position: bottom center;
+}
+#warping {
+  width: 600px;
+  height: 100px;
 }
 
 
