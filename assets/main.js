@@ -60,7 +60,7 @@ function closeModal(e) {
 
 
 /*** warping SVG ***/
-const svg = document.getElementById('warping');
+const svg = document.getElementById('logo');
 const warp = new Warp(svg);
 
 warp.interpolate(4);
