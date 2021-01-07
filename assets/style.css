@@ -140,22 +140,24 @@ a, a:link, a:visited {
   text-decoration: none;
 }
 
-
-/* Section displays */
-.wrapper {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 hr {
   border: 0;
   margin: 3rem 0;
 }
 
-section, header, footer {
+
+
+.wrapper { /* parallax wrapper */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 100vh;
+}
+.section {
   display: grid;
   grid-template-columns: 5.2fr 7.8fr 14.3fr 14.3fr 16.67fr 14.3fr 14.3fr 7.8fr 5.2fr; /* 9 col */
   grid-template-rows: 1fr 1.3fr 1.1fr 1.9fr 1.5fr 1.5fr 1.5fr; /* 7 row */
@@ -164,11 +166,37 @@ section, header, footer {
   flex-grow: 1;
   position: relative;
   transform-style: preserve-3d;
-  perspective: 1px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 100vh;
+}
+.parallax {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 5.2fr 7.8fr 14.3fr 14.3fr 16.67fr 14.3fr 14.3fr 7.8fr 5.2fr; /* 9 col */
+  grid-template-rows: 1fr 1.3fr 1.1fr 1.9fr 1.5fr 1.5fr 1.5fr; /* 7 row */
+}
+.parallax--base {
+  transform: translateZ(0);
+  z-index: 10;
+}
+.parallax--minus1 {
+  transform: translateZ(-1px) scale(2);
+  z-index: 1;
+}
+.parallax--minus2 {
+  transform: translateZ(-2px) scale(3);
+  z-index: 0;
+}
+.parallax--minus3 {
+  transform: translateZ(-15px) scale(16);
+  z-index: -999;
 }
 
+
+
+
+/* Section displays */
 #footer {
   z-index: 100;
   grid-row: 2 / span 5;
@@ -467,11 +495,8 @@ img {
   background-image: url('../img/mesh.svg');
   background-size: cover;
   background-position: bottom center;
-  position: absolute;
   height: 100vh;
   width: 100vw;
-  transform: translateZ(-2px) scale(3);
-  z-index: -10;
 }
 #img__logo {
   grid-column: 4 / span 3; grid-row: 4 / span 1;
@@ -484,7 +509,6 @@ img {
 
 #img__city {
   grid-column: 2 / span 2; grid-row: 1 / span 2; mix-blend-mode: multiply; z-index:-500;
-  transform: translateZ(-50px);
 }
 #img__cloud3 {
   grid-column: 3 / span 2; grid-row: 2 / span 1;
@@ -524,7 +548,6 @@ img {
 #img__frame {
   grid-column: 5 / span 2; grid-row: 3 / span 3; margin: 20px auto auto 10px;
   z-index: 40;
-  transform: translateZ(-1px) scale(2);
 }
 
 
@@ -588,7 +611,7 @@ img {
   grid-column: 5 / span 1; grid-row: 2 / span 1; place-self: center;
 }
 #img__plane {
-  grid-column: 2 / span 1; grid-row: 2 / span 1;
+  grid-column: 2 / span 1; grid-row: 5 / span 1;
 }
 #img__statue {
   grid-column: 7 / span 1; grid-row: 1 / span 3;
@@ -630,7 +653,7 @@ img {
   z-index: -2;
 }
 #img__bouquet {
-  grid-column: 7 / span 1; grid-row:  / span 1; mix-blend-mode: multiply;
+  grid-column: 7 / span 1; grid-row: 6 / span 1; mix-blend-mode: multiply;
 }
 #img__bird {
   grid-column: 8 / span 2; grid-row: 2 / span 2; justify-self: flex-end;
