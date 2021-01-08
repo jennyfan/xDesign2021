@@ -194,7 +194,9 @@ hr {
   transform: translateZ(-15px) scale(16);
   z-index: -999;
 }
-
+.animate__fadeInLeft, .animate__fadeInRight {
+  --animate-duration: 3s;
+}
 /* .move-right {
   animation: flyRight 2s forwards ease-out;
 }
@@ -224,9 +226,9 @@ hr {
 
 
 /* Section displays */
-#footer {
+.text {
   z-index: 100;
-  grid-row: 2 / span 5;
+  grid-row: 2 / span 4;
   grid-column: 3 / span 5;
   align-items: start;
   justify-content: flex-start;
@@ -253,8 +255,12 @@ li {
 }
 
 @media (max-width: 800px) { 
-  #footer {
+  .text {
     grid-column: 2 / span 7;
+    grid-row: 1 / span 6;
+  }
+  .text > p {
+    margin-bottom: 0;
   }
   #team {
     flex-direction: column;
@@ -264,14 +270,10 @@ li {
 /* Intro section */
 .splitcol {
   z-index: 100;
-  grid-row: 3 / span 2;
-  grid-column: 3 / span 5;
   align-self: start;
   display: flex;
   flex-direction: row;
   gap: 5rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
 }
 .splitcol p {
   margin: 0.5rem 0;
@@ -280,7 +282,8 @@ li {
   grid-row: 7;
   grid-column: 4 / span 3;
   text-align: center;
-  place-self: center center;
+  place-self: flex-start center;
+  z-index: 99999;
 }
 .btn__top {
   grid-row: 7;
@@ -330,7 +333,9 @@ li {
     margin: 0;
   }
   .btn__next {
-    grid-row: 7;
+    grid-row: 7 / span 1;
+    z-index: 99999;
+    align-self: flex-end;
   }
   .btn {
     font-size: 1.2rem;
@@ -338,7 +343,7 @@ li {
   }
   .btn__top {
     grid-row: 7;
-    grid-column: 7 / span 2;
+    grid-column: 6 / span 3;
     text-align: center;
     place-self: center flex-end;
     z-index: 500;
@@ -386,7 +391,7 @@ li {
 @media (max-width: 960px) { 
   #panel1, #panel2, #panel3 {
     grid-column: 2 / span 7;
-    grid-row: 3 / span 1;
+    grid-row: 4 / span 1;
   }
 }
 
@@ -573,7 +578,8 @@ img {
   z-index: 999;
 }
 #img__frame {
-  grid-column: 5 / span 2; grid-row: 3 / span 3; margin: 20px auto auto 10px;
+  grid-column: 5 / span 2; grid-row: 3 / span 3;
+  align-self: center;
   z-index: 40;
 }
 
@@ -625,8 +631,9 @@ img {
     align-self: center;
   }
   #img__frame {
-    grid-column: 4 / span 3; grid-row: 3 / span 4;
-    margin: 70px auto auto 10px;
+    grid-column: 4 / span 3; grid-row: 3 / span 3;
+    /* margin: 70px auto auto 10px; */
+    align-self: center;
   }
 }
 
@@ -635,7 +642,10 @@ img {
   grid-column: 7 / span 2; grid-row: 3 / span 3;
 }
 #img__flower {
-  grid-column: 5 / span 1; grid-row: 2 / span 1; place-self: center;
+  grid-column: 5 / span 1; grid-row: 5 / span 1;
+  place-self: center;
+  mix-blend-mode: multiply;
+  z-index: -99999;
 }
 #img__plane {
   grid-column: 2 / span 1; grid-row: 5 / span 1;
@@ -652,12 +662,12 @@ img {
 #img__rubiks {
   grid-column: 5 / span 1; grid-row: 3 / span 1;
   mix-blend-mode: multiply;
-  width: 100px;
+  width: 80px;
   justify-self:flex-end;
   margin-top:-50px
 }
 #img__shell {
-  grid-column: 4 / span 1; grid-row: 6 / span 1;
+  grid-column: 4 / span 1; grid-row: 1 / span 1;
   width: 80px;
 }
 #img__eye {
@@ -691,11 +701,16 @@ img {
 }
 
 @media (max-width: 960px) { 
+  #img__flower {
+    grid-column: 2 / span 2;
+    grid-row: 5 / span 2;
+    align-self: flex-end;
+  }
   #img__bikeplane {
     display: none;
   }
   #img__plane {
-    grid-column: 2 / span 3; grid-row: 1 / span 1;
+    grid-column: 2 / span 3; grid-row: 6 / span 1;
   }
   #img__statue {
     display: none;
@@ -704,15 +719,15 @@ img {
     display: none;
   }
   #img__rubiks {
-    grid-column: 7 / span 1; grid-row: 3 / span 1;
+    grid-column: 7 / span 1; grid-row: 4 / span 1;
     mix-blend-mode: multiply;
     max-width: 100px;
   }
   #img__shell {
-    grid-column: 7 / span 1; grid-row: 5 / span 1;
+    display: none;
   }
   #img__eye {
-    grid-column: 7 / span 2; grid-row: 3 / span 1;
+    grid-column: 7 / span 2; grid-row: 4 / span 1;
     mix-blend-mode: multiply;
     margin-top: -50px;
   }
@@ -720,7 +735,7 @@ img {
     display: none;
   }
   #img__cranes {
-    grid-column: 7 / span 2; grid-row: 3 / span 1;
+    grid-column: 7 / span 2; grid-row: 4 / span 1;
     mix-blend-mode: multiply;
     max-width: 200px;
     place-self: flex-start;
