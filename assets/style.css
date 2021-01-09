@@ -360,6 +360,8 @@ li {
 #panel1 {
   background-color: var(--clr-accent1);
   box-shadow: 20px 20px 0 0 rgba(209, 228, 232, 0.5);
+    background-color: var(--clr-accent3);
+  box-shadow: 20px 20px 0 0 rgba(255, 232, 211, 0.5);
   grid-column: 3 / span 3;
   grid-row: 3 / span 1;
 }
@@ -372,12 +374,15 @@ li {
 #panel3 {
   background-color: var(--clr-accent3);
   box-shadow: 20px 20px 0 0 rgba(255, 232, 211, 0.5);
+  background-color: var(--clr-accent1);
+  box-shadow: 20px 20px 0 0 rgba(209, 228, 232, 0.5);
   grid-column: 3 / span 3;
   grid-row: 3 / span 1;
 }
 #panel1:hover {
   cursor: pointer;
   box-shadow: 10px 10px 0 0 rgba(209, 228, 232, 0.8);
+  box-shadow: 10px 10px 0 0 rgba(255, 232, 211, 0.8);
 }
 #panel2:hover {
   cursor: pointer;
@@ -386,6 +391,7 @@ li {
 #panel3:hover {
   cursor: pointer;
   box-shadow: 10px 10px 0 0 rgba(255, 232, 211, 0.8);
+    box-shadow: 10px 10px 0 0 rgba(209, 228, 232, 0.8);
 }
 
 @media (max-width: 960px) { 
@@ -412,13 +418,13 @@ li {
   --animate-duration: 300ms;
 }
 #modal__panel1 {
-  background-color: var(--clr-accent1);
+  background-color: var(--clr-accent3);
 }
 #modal__panel2 {
   background-color: var(--clr-accent2);
 }
 #modal__panel3 {
-  background-color: var(--clr-accent3);
+  background-color: var(--clr-accent1);
 }
 .close {
   color: var(--clr-text);
@@ -663,7 +669,7 @@ img {
   grid-column: 5 / span 1; grid-row: 3 / span 1;
   mix-blend-mode: multiply;
   width: 80px;
-  justify-self:flex-end;
+  justify-self: flex-end;
   margin-top:-50px
 }
 #img__shell {
@@ -673,6 +679,7 @@ img {
 #img__eye {
   grid-column: 5 / span 1; grid-row: 3 / span 1;
   mix-blend-mode: multiply;
+  width: 100px;
   margin-top: -40px;
   max-width: 120px;
 }
