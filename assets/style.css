@@ -443,6 +443,20 @@ li {
 }
 
 
+
+.slideshow-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0px 40px 0px;
+}
+
+.slideshow-content{
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  font-style: italic;
+}
 /* Big profile (in modal) */
 
 .profile {

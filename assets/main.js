@@ -110,3 +110,35 @@ const observer = new IntersectionObserver(function(entries, observer) {
 animated.forEach(element => {
     observer.observe(element);
 });
+
+
+
+var myIndex = [0,0,0];
+var myIndex1 = 0;
+var myIndex2 = 0;
+var myIndex3 = 0;
+carousel();
+
+
+function carousel() {
+    for (let k = 0; k < 3; k++) {
+
+
+  var i;
+  var x = document.getElementsByClassName(`slideshow${k+1}`);
+  console.log(x)
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex[k]++;
+  if (myIndex[k] > x.length) {myIndex[k] = 1}    
+  x[myIndex[k]-1].style.display = "block";  
+   // Change image every 2 seconds
+}
+setTimeout(carousel, 4000);
+}
+
+
+
+
+
