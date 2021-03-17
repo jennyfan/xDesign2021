@@ -224,6 +224,35 @@ hr {
   }
 } */
 
+.side-arrow {
+  transform: rotate(270deg);
+}
+
+.fireside-chat-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fireside-chat-text {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.fireside-chat-link {
+  display: flex;
+  position: relative;
+  align-items: center;
+  font-weight: 600;
+}
+
+.fireside-link {
+  padding: 0px 8px;
+}
+
+
 
 /* Section displays */
 .text {
